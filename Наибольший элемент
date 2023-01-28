@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace СказочнаяСтрана
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool oneElementInArray = true;
+            bool secondOneElementInArray = false;
+            int previusElementInArray = 0;
+            int mediumElementInArray = 0;
+            int quantityNumberInArray = 10;
+            int markerOfTheLastChar = 0;
+            int maxRandomNumberInarray = 10;
+            int minRandomNumberInArray = 0;
+            int [] array = new int[quantityNumberInArray];
+            Random random = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(minRandomNumberInArray, maxRandomNumberInarray);
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine();
+
+            foreach (var number in array)
+            {
+                markerOfTheLastChar++;
+
+                if (oneElementInArray == true)
+                {
+                    previusElementInArray = number;
+                    oneElementInArray = false;
+                    secondOneElementInArray = false;
+                }
+                else if (secondOneElementInArray == false)
+                {
+                    mediumElementInArray = number;
+
+                    if(mediumElementInArray<previusElementInArray)
+                    {
+                        Console.Write(previusElementInArray + " ");
+                    }
+                    secondOneElementInArray = true;
+                }
+                else if (mediumElementInArray > number && mediumElementInArray > previusElementInArray)
+                {
+                    Console.Write(mediumElementInArray + " ");
+                    previusElementInArray = mediumElementInArray;
+                    mediumElementInArray = number;
+                }
+                else if (markerOfTheLastChar == quantityNumberInArray && number > mediumElementInArray)
+                {
+                    Console.Write(number + " ");
+                }
+                else
+                {
+                    previusElementInArray = mediumElementInArray;
+                    mediumElementInArray = number;
+                }
+            }
+        }
+    }
+}
