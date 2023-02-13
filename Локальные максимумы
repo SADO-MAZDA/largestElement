@@ -4,65 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace СказочнаяСтрана
+namespace ConsoleApp17
 {
     class Program
     {
         static void Main(string[] args)
         {
-            bool oneElementInArray = true;
-            bool secondOneElementInArray = false;
-            int previusElementInArray = 0;
-            int mediumElementInArray = 0;
-            int quantityNumberInArray = 10;
-            int markerOfTheLastChar = 0;
-            int maxRandomNumberInarray = 10;
-            int minRandomNumberInArray = 0;
-            int [] array = new int[quantityNumberInArray];
+            int maxNumber = 10;
+            int minNumber = 0;
+            int size = 10;
+            int extremeElement = size - 1;
+            int[] array = new int[size];
             Random random = new Random();
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < size; i++)
             {
-                array[i] = random.Next(minRandomNumberInArray, maxRandomNumberInarray);
+                array[i] = random.Next(minNumber, maxNumber);
                 Console.Write(array[i] + " ");
             }
+
             Console.WriteLine();
 
-            foreach (var number in array)
+            if (array[0] > array[1])
             {
-                markerOfTheLastChar++;
+                Console.Write(array[0] + " ");
+                
+            }
 
-                if (oneElementInArray == true)
+            for (int i = 1; i < extremeElement ; i++)
+            {
+                if (array[i] > array [i-1] && array[i] > array[i+1])
                 {
-                    previusElementInArray = number;
-                    oneElementInArray = false;
-                    secondOneElementInArray = false;
+                    Console.Write(array[i] + " ");
                 }
-                else if (secondOneElementInArray == false)
-                {
-                    mediumElementInArray = number;
+            }
 
-                    if(mediumElementInArray<previusElementInArray)
-                    {
-                        Console.Write(previusElementInArray + " ");
-                    }
-                    secondOneElementInArray = true;
-                }
-                else if (mediumElementInArray > number && mediumElementInArray > previusElementInArray)
-                {
-                    Console.Write(mediumElementInArray + " ");
-                    previusElementInArray = mediumElementInArray;
-                    mediumElementInArray = number;
-                }
-                else if (markerOfTheLastChar == quantityNumberInArray && number > mediumElementInArray)
-                {
-                    Console.Write(number + " ");
-                }
-                else
-                {
-                    previusElementInArray = mediumElementInArray;
-                    mediumElementInArray = number;
-                }
+            if (array[extremeElement] > array[extremeElement-1])
+            {
+                Console.Write(array[extremeElement] + " ");
             }
         }
     }
