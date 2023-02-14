@@ -10,38 +10,40 @@ namespace ConsoleApp17
     {
         static void Main(string[] args)
         {
-            int maxNumber = 10;
-            int minNumber = 0;
-            int size = 10;
-            int extremeElement = size - 1;
-            int[] array = new int[size];
+            int maxRandomNumber = 10;
+            int minRandomNumber = 0;
+            int arrayLenght = 10;
+            int extremeElement = arrayLenght - 1;
+            int oneElement = 0;
+            int secondElement = 1;
+            int[] arrayWithLocalMaximum = new int[arrayLenght];
             Random random = new Random();
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < arrayLenght; i++)
             {
-                array[i] = random.Next(minNumber, maxNumber);
-                Console.Write(array[i] + " ");
+                arrayWithLocalMaximum[i] = random.Next(minRandomNumber, maxRandomNumber);
+                Console.Write(arrayWithLocalMaximum[i] + " ");
             }
 
             Console.WriteLine();
 
-            if (array[0] > array[1])
+            if (arrayWithLocalMaximum[oneElement] > arrayWithLocalMaximum[secondElement])
             {
-                Console.Write(array[0] + " ");
+                Console.Write(arrayWithLocalMaximum[0] + " ");
                 
             }
 
             for (int i = 1; i < extremeElement ; i++)
             {
-                if (array[i] > array [i-1] && array[i] > array[i+1])
+                if (arrayWithLocalMaximum[i] > arrayWithLocalMaximum [i-1] && arrayWithLocalMaximum[i] > arrayWithLocalMaximum[i+1])
                 {
-                    Console.Write(array[i] + " ");
+                    Console.Write(arrayWithLocalMaximum[i] + " ");
                 }
             }
 
-            if (array[extremeElement] > array[extremeElement-1])
+            if (arrayWithLocalMaximum[extremeElement] > arrayWithLocalMaximum[extremeElement-1])
             {
-                Console.Write(array[extremeElement] + " ");
+                Console.Write(arrayWithLocalMaximum[extremeElement] + " ");
             }
         }
     }
