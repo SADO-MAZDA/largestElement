@@ -16,34 +16,36 @@ namespace ConsoleApp17
             int extremeElement = arrayLenght - 1;
             int oneElement = 0;
             int secondElement = 1;
-            int[] arrayWithLocalMaximum = new int[arrayLenght];
+            int[] numbers = new int[arrayLenght];
+            int oneStep = 1;
+            
             Random random = new Random();
 
             for (int i = 0; i < arrayLenght; i++)
             {
-                arrayWithLocalMaximum[i] = random.Next(minRandomNumber, maxRandomNumber);
-                Console.Write(arrayWithLocalMaximum[i] + " ");
+                numbers[i] = random.Next(minRandomNumber, maxRandomNumber);
+                Console.Write(numbers[i] + " ");
             }
 
             Console.WriteLine();
 
-            if (arrayWithLocalMaximum[oneElement] > arrayWithLocalMaximum[secondElement])
+            if (numbers[oneElement] > numbers[secondElement])
             {
-                Console.Write(arrayWithLocalMaximum[0] + " ");
+                Console.Write(numbers[oneElement] + " ");
                 
             }
 
             for (int i = 1; i < extremeElement ; i++)
             {
-                if (arrayWithLocalMaximum[i] > arrayWithLocalMaximum [i-1] && arrayWithLocalMaximum[i] > arrayWithLocalMaximum[i+1])
+                if (numbers[i] > numbers [i-oneStep] && numbers[i] > numbers[i+oneStep])
                 {
-                    Console.Write(arrayWithLocalMaximum[i] + " ");
+                    Console.Write(numbers[i] + " ");
                 }
             }
 
-            if (arrayWithLocalMaximum[extremeElement] > arrayWithLocalMaximum[extremeElement-1])
+            if (numbers[extremeElement] > numbers[extremeElement-oneStep])
             {
-                Console.Write(arrayWithLocalMaximum[extremeElement] + " ");
+                Console.Write(numbers[extremeElement] + " ");
             }
         }
     }
