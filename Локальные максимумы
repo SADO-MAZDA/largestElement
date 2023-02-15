@@ -17,8 +17,7 @@ namespace ConsoleApp17
             int oneElement = 0;
             int secondElement = 1;
             int[] numbers = new int[arrayLenght];
-            int oneStep = 1;
-            
+
             Random random = new Random();
 
             for (int i = 0; i < arrayLenght; i++)
@@ -32,18 +31,18 @@ namespace ConsoleApp17
             if (numbers[oneElement] > numbers[secondElement])
             {
                 Console.Write(numbers[oneElement] + " ");
-                
+
             }
 
-            for (int i = 1; i < extremeElement ; i++)
+            for (int i = 1; i < extremeElement; i++)
             {
-                if (numbers[i] > numbers [i-oneStep] && numbers[i] > numbers[i+oneStep])
+                if (numbers[i] > numbers[i -1] && numbers[i] > numbers[i + 1])
                 {
                     Console.Write(numbers[i] + " ");
                 }
             }
 
-            if (numbers[extremeElement] > numbers[extremeElement-oneStep])
+            if (numbers[extremeElement] > numbers[extremeElement - 1])
             {
                 Console.Write(numbers[extremeElement] + " ");
             }
